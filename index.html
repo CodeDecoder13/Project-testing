@@ -313,7 +313,7 @@
                     <div class="msg-row">
                       <div class="msg-input">
                         <label>Message</label>
-                    <textarea rows="5" placeholder="Write your message.."></textarea>
+                    <input type="text" name="message" id="message">
                       </div>
                     </div>
                     
@@ -325,6 +325,28 @@
                   <!-- End #contact-form -->
                 </div>
                 <!-- End .contact -->
+               <script src="https://smtpjs.com/v3/smtp.js"></script>
+                <script>
+                  function sendEmail(){
+                    Email.send({
+                      Host: "smtp.gmail.com",
+                      Username: "boyparamio@gmail.com",
+                      Password: "Boyparamio12",
+                      To: "boyparamio@gmail.com",
+                      From: document.getElementById("email").value,
+                      Subject: "New Contact Form Inquiry",
+                      Body: "Name: " + document.getElementById("fname").value 
+                      + " " + document.getElementById("lname").value 
+                      + "<br>Email: " + document.getElementById("email").value 
+                      + "<br>Phone: " + document.getElementById("phone").value 
+                      + "<br>Message: " + document.getElementById("message").value
+                                  
+                
+                    }).then(
+                      message => alert("message sent successfully")
+                      );
+                  }
+                </script>
             
               </div>
               <!-- End .wrapper -->
